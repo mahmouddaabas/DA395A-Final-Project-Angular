@@ -4,8 +4,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 
 const routes: Routes = [
-  {path: '', component: HomePageComponent},
-  {path: 'search', component: SearchPageComponent}
+  { path: '', component: HomePageComponent },
+  { path: 'search', component: SearchPageComponent }
 ];
 
 @NgModule({
@@ -13,3 +13,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
