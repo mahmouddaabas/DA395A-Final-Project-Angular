@@ -1,0 +1,24 @@
+#song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 25px;
+    list-style-type: none;
+}
+
+#song-list img {
+    width: 10%;
+}
+
+#song-list li{
+    border: 1px solid blue;
+    padding: 10px;
+}
+#song-list li:hover{
+    cursor: pointer;
+}
+
+#delete-icon{
+    color: lime;
+    float: right;
+}

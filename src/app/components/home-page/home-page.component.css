@@ -8,14 +8,4 @@
   #search-bar input {
     width: 50%;
   }
-
-  #navbar{
-    background-color: rgba(24, 24, 228, 0.836);
-    margin-top: 15px;
-  }
-
-  #navbar a{
-    color: white;
-    margin-left: 15px;
-  }
   

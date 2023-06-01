@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <p>TEST</p>
+    <ul id="song-list">
+        <!--Map the searchData array in the ts file into LI elemenets in the list -->
+        <li *ngFor="let item of searchData" (click)="getSongInformation($event)" [attr.apipath]="item.result.api_path"> <!--Add apipath attribute to hold the path for the songs-->
+            <img src={{item.result.header_image_url}}>
+            {{ item.result.title }}
+            <mat-icon id="delete-icon">add</mat-icon>
+        </li>
+    </ul>
 </body>
+
 </html>

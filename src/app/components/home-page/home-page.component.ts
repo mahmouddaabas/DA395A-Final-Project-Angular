@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../env';
+import { Router } from '@angular/router';
+
+
 
 
 @Component({
@@ -10,7 +13,7 @@ import { environment } from '../../../../env';
 })
 
 export class HomePageComponent {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
    data = {
     "meta": {
@@ -127,7 +130,10 @@ export class HomePageComponent {
         console.log(response);
       });*/
 
-      console.log(this.data.response.hits)
-      console.log(environment.access_token)
+      //console.log(this.data.response.hits)
+      //console.log(environment.access_token)
+
+      this.router.navigateByUrl(`/search/${keyword}`, { state: { searchData: this.data.response.hits } });
+
   }
 }
