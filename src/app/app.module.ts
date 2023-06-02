@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchInformationPageComponent } from './components/search-information-page/search-information-page.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SearchInformationPageComponent } from './components/search-information-
     HomePageComponent,
     SearchPageComponent,
     NavbarComponent,
-    SearchInformationPageComponent
+    SearchInformationPageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

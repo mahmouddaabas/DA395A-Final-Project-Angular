@@ -1,12 +1,11 @@
-#navbar{
+#footer{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #1f2937;
-    margin-top: 15px;
-  }
+    text-align: center;
+}
 
-  #navbar a{
+#paragraph{
     color: white;
-    margin-left: 15px;
-  }
+}
