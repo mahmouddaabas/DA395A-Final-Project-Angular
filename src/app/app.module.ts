@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchInformationPageComponent } from './components/search-information-page/search-information-page.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SavedSongsPageComponent } from './components/saved-songs-page/saved-songs-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FooterComponent } from './components/footer/footer.component';
     SearchPageComponent,
     NavbarComponent,
     SearchInformationPageComponent,
-    FooterComponent
+    FooterComponent,
+    SavedSongsPageComponent
   ],
   imports: [
     BrowserModule,
