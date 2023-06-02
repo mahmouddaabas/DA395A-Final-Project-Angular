@@ -1,0 +1,15 @@
+#info-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.information-text{
+    font-size: 18px;
+    background-color: gray;
+    color: white;
+}
+
+.song-player{
+    margin-top: 25px;
+}

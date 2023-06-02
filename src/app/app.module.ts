@@ -12,13 +12,15 @@ import {MatIconModule} from '@angular/material/icon';
 
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchInformationPageComponent } from './components/search-information-page/search-information-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     SearchPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    SearchInformationPageComponent
   ],
   imports: [
     BrowserModule,

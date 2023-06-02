@@ -23,12 +23,12 @@ export class SearchPageComponent {
     const apiPath = (event.target as HTMLElement).getAttribute('apipath');
 
     //Perform api call here with apipath.
-    this.http.get(`https://api.genius.com${apiPath}?access_token=${environment.access_token}`)
+    this.http.get<any>(`https://api.genius.com${apiPath}?access_token=${environment.access_token}`)
       .subscribe((response) => {
-        console.log(response);
+        const urlQuery = response.response.song.path;
 
         //Send data to song-information-page component
-        //this.router.navigateByUrl(`/search/${keyword}`, { state: { searchData: this.data.response.hits } });
+        this.router.navigateByUrl(`/information${urlQuery}`, { state: { songData: response.response.song } });
 
       });
   }
