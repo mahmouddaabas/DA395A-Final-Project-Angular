@@ -6,10 +6,10 @@ import { SearchInformationPageComponent } from './components/search-information-
 import { SavedSongsPageComponent } from './components/saved-songs-page/saved-songs-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'search/:query', component: SearchPageComponent },
-  { path: 'information/:query', component: SearchInformationPageComponent},
-  { path: 'saved', component: SavedSongsPageComponent}
+  { path: 'https://mahmouddaabas.github.io/DA395A-Final-Project-Angular/', component: HomePageComponent },
+  { path: 'https://mahmouddaabas.github.io/DA395A-Final-Project-Angular/search/:query', component: SearchPageComponent },
+  { path: 'https://mahmouddaabas.github.io/DA395A-Final-Project-Angular/information/:query', component: SearchInformationPageComponent},
+  { path: 'https://mahmouddaabas.github.io/DA395A-Final-Project-Angular/saved', component: SavedSongsPageComponent}
 ];
 
 @NgModule({
