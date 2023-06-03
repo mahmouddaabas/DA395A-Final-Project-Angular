@@ -1,1 +1,1 @@
-ng build --output-path docs --base-href /DA395A-Final-Project-Angular
+ng build --output-path docs --base-href /DA395A-Final-Project-Angular/
