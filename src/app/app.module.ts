@@ -15,6 +15,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchInformationPageComponent } from './components/search-information-page/search-information-page.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SavedSongsPageComponent } from './components/saved-songs-page/saved-songs-page.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import { SavedSongsPageComponent } from './components/saved-songs-page/saved-son
     NavbarComponent,
     SearchInformationPageComponent,
     FooterComponent,
-    SavedSongsPageComponent
+    SavedSongsPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,7 @@ import { SavedSongsPageComponent } from './components/saved-songs-page/saved-son
     MatIconModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
