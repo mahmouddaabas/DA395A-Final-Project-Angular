@@ -14,7 +14,7 @@
         <li *ngFor="let item of searchData" (click)="getSongInformation($event)" [attr.apipath]="item.result.api_path"> <!--Add apipath attribute to hold the path for the songs-->
             <img src={{item.result.header_image_url}}>
             {{ item.result.title }}
-            <mat-icon id="delete-icon" (click)="addSongToStorage($event)">add</mat-icon>
+            <mat-icon id="add-icon" (click)="addSongToStorage($event);">add</mat-icon>
         </li>
     </ul>
 </body>

@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 export class HomePageComponent {
   constructor(private http: HttpClient, private router: Router) { }
 
+  //Searches for an artist's music through the API.
   searchArtist() {
     const input = document.getElementById('search-input') as HTMLInputElement;
     const keyword = input.value;
@@ -22,7 +23,7 @@ export class HomePageComponent {
     this.http.get<any>(`https://api.genius.com/search?q=${keyword}&access_token=${localStorage.getItem("api_key")}`)
       .subscribe((response) => {
         // Handle the API response here
-        console.log(response);
+        //console.log(response);
         this.router.navigateByUrl(`/search/${keyword}`, { state: { searchData: response.response.hits } });
       });
 

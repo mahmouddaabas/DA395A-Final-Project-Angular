@@ -18,14 +18,20 @@ export class SearchPageComponent {
     this.searchData = this.router.getCurrentNavigation()?.extras?.state?.['searchData'];
   }
 
+  //Run this code after the page loads.
   ngAfterViewInit() {
     const savedSongArray = JSON.parse(localStorage.getItem("savedSongs") ?? "[]");
     const list = document.getElementById('song-list') as HTMLElement;
     const liElements = list.getElementsByTagName('li');
     for (let i = 0; i < liElements.length; i++) {
       const li = liElements[i];
-      let textContentRemoveAdd = li.textContent?.replaceAll("add", "");
-      let textContentTrimmed = textContentRemoveAdd?.replace(" ", "").trim();
+      let textContentNew = li.textContent?.replaceAll("add", "").trim();
+      if (savedSongArray && savedSongArray.some((item: any) => item.songTitleTrimmed === textContentNew)){
+        const addButton = (liElements[i].lastChild as HTMLElement);
+        //console.log(addButton);
+        addButton.style.pointerEvents = 'none';
+        addButton.style.color = 'gray';
+      }
     }
   }
   
@@ -34,10 +40,11 @@ export class SearchPageComponent {
 
   //Saves the a song and its image to the local storage.
   addSongToStorage(event: Event) {
+    event.stopPropagation() //On trigger this click event, not the others in the same element.
     const targetElement = event.target as HTMLElement;
     let songTitle = targetElement.closest('li')?.textContent;
     let songTitleRemoveAdd = songTitle?.replaceAll("add", "");
-    let songTitleTrimmed = songTitleRemoveAdd?.replace(" ", "")
+    let songTitleTrimmed = songTitleRemoveAdd?.trim();
     const songImage = targetElement.closest('li')?.querySelector("img")?.getAttribute("src");
     const songApiPath = targetElement.closest('li')?.getAttribute("apipath")
     const songToSave = {
@@ -56,6 +63,7 @@ export class SearchPageComponent {
     targetElement.style.color = 'gray'
   }
 
+  //Gets a specifics songs information through its api path attribute.
   getSongInformation(event: Event) {
     //Get the api path from the clicked li element.
     const apiPath = (event.target as HTMLElement).getAttribute('apipath');
