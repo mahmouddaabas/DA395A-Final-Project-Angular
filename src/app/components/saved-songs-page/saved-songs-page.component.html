@@ -1,7 +1,7 @@
 <body>
     <ul id="song-list">
         <!--Map the searchData array in the ts file into LI elemenets in the list -->
-        <li *ngFor="let item of savedSongData" [attr.apipath]="item.songApiPath"> <!--Add apipath attribute to hold the path for the songs-->
+        <li *ngFor="let item of savedSongData" [attr.apipath]="item.songApiPath" (click)="getSongInformation($event)"> <!--Add apipath attribute to hold the path for the songs-->
             <img src={{item.songImage}}>
             {{ item.songTitleTrimmed }}
             <mat-icon id="delete-icon" (click)="deleteSongFromStoarge($event)">delete</mat-icon>

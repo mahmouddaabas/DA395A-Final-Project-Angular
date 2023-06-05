@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { environment } from 'env';
 
 @Component({
   selector: 'app-saved-songs-page',
@@ -8,12 +11,12 @@ import { Component } from '@angular/core';
 export class SavedSongsPageComponent {
   savedSongData: any; //Declare variable to hold data from state
 
-  constructor(){
+  constructor(private router: Router,private http: HttpClient) {
     this.savedSongData = JSON.parse(localStorage.getItem("savedSongs") ?? "[]");
   }
 
   //Deletes a song from the localStorage.
-  deleteSongFromStoarge(event: Event){
+  deleteSongFromStoarge(event: Event) {
     //Remove from HTML List
     const liToRemove = (event.currentTarget as HTMLElement).parentElement!;
     const list = document.getElementById("song-list");
@@ -29,5 +32,18 @@ export class SavedSongsPageComponent {
       savedSongsArray.splice(indexToRemove, 1);
       localStorage.setItem("savedSongs", JSON.stringify(savedSongsArray));
     }
+  }
+
+  //Perform an api call once a saved song is clicked and navigate to the information page.
+  getSongInformation(event: Event) {
+    const apiPath = (event.currentTarget as HTMLElement).getAttribute("apipath");
+    //Perform api call here with apipath.
+    this.http.get<any>(`https://api.genius.com${apiPath}?access_token=${environment.access_token}`)
+      .subscribe((response) => {
+        const urlQuery = response.response.song.path;
+
+        //Send data to song-information-page component
+        this.router.navigateByUrl(`/information${urlQuery}`, { state: { songData: response.response.song } });
+      });
   }
 }
