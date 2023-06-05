@@ -12,6 +12,7 @@ export class SavedSongsPageComponent {
     this.savedSongData = JSON.parse(localStorage.getItem("savedSongs") ?? "[]");
   }
 
+  //Deletes a song from the localStorage.
   deleteSongFromStoarge(event: Event){
     //Remove from HTML List
     const liToRemove = (event.currentTarget as HTMLElement).parentElement!;

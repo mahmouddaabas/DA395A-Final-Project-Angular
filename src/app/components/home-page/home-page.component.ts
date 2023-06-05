@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 export class HomePageComponent {
   constructor(private http: HttpClient, private router: Router) { }
 
+  //Searches for an artist's music through the API.
   searchArtist() {
     const input = document.getElementById('search-input') as HTMLInputElement;
     const keyword = input.value;
