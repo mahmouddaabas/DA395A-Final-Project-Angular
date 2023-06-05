@@ -22,7 +22,7 @@ export class HomePageComponent {
     this.http.get<any>(`https://api.genius.com/search?q=${keyword}&access_token=${environment.access_token}`)
       .subscribe((response) => {
         // Handle the API response here
-        console.log(response);
+        //console.log(response);
         this.router.navigateByUrl(`/search/${keyword}`, { state: { searchData: response.response.hits } });
       });
 

@@ -34,10 +34,11 @@ export class SearchPageComponent {
 
   //Saves the a song and its image to the local storage.
   addSongToStorage(event: Event) {
+    event.stopPropagation() //On trigger this click event, not the others in the same element.
     const targetElement = event.target as HTMLElement;
     let songTitle = targetElement.closest('li')?.textContent;
     let songTitleRemoveAdd = songTitle?.replaceAll("add", "");
-    let songTitleTrimmed = songTitleRemoveAdd?.replace(" ", "")
+    let songTitleTrimmed = songTitleRemoveAdd?.trim();
     const songImage = targetElement.closest('li')?.querySelector("img")?.getAttribute("src");
     const songApiPath = targetElement.closest('li')?.getAttribute("apipath")
     const songToSave = {
