@@ -38,7 +38,7 @@ export class SavedSongsPageComponent {
   getSongInformation(event: Event) {
     const apiPath = (event.currentTarget as HTMLElement).getAttribute("apipath");
     //Perform api call here with apipath.
-    this.http.get<any>(`https://api.genius.com${apiPath}?access_token=${environment.access_token}`)
+    this.http.get<any>(`https://api.genius.com${apiPath}?access_token=${localStorage.getItem("api_key")}`)
       .subscribe((response) => {
         const urlQuery = response.response.song.path;
 

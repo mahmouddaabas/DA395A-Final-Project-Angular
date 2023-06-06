@@ -22,7 +22,7 @@ export class HomePageComponent {
 
     if (keyword !== '') {
       // Make the API call using HttpClient
-      this.http.get<any>(`https://api.genius.com/search?q=${keyword}&access_token=${environment.access_token}`)
+      this.http.get<any>(`https://api.genius.com/search?q=${keyword}&access_token=${localStorage.getItem("api_key")}`)
         .subscribe((response) => {
           // Handle the API response here
           //console.log(response);
