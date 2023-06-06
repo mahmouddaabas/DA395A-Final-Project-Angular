@@ -9,6 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class SearchInformationPageComponent {
   songData: any; //Declare variable to hold data from state
+
   constructor(private router: Router, private sanitizer: DomSanitizer) {
     //Set the data sent from the search-page through the state into the songData variable.
     this.songData = this.router.getCurrentNavigation()?.extras?.state?.['songData'];
@@ -25,17 +26,23 @@ export class SearchInformationPageComponent {
         }
         return result;
       }, []);
-  
+
     const description = songData.description?.dom.children
       .filter((element: any) => element.tag === 'p' || element.tag === 'blockquote')
       .flatMap((element: any) => extractText(element.children));
-  
+
     return description.join('').trim();
   }
 
   //Sanitize the apple music url.
-  getApplePlayerUrl(){
-  return this.sanitizer.bypassSecurityTrustResourceUrl(this.songData.apple_music_player_url);
+  getApplePlayerUrl() {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.songData.apple_music_player_url);
   }
-  
+
+  //Changes the youtube URl from watch to embed.
+  changeYoutubeUrlToEmbed() {
+    let url = this.songData.media[0].url;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url.replace('/watch?v=', '/embed/'));
+  }
+
 }

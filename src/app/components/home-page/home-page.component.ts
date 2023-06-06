@@ -19,16 +19,21 @@ export class HomePageComponent {
   searchArtist() {
     const input = document.getElementById('search-input') as HTMLInputElement;
     const keyword = input.value;
-    // Make the API call using HttpClient
-    this.http.get<any>(`https://api.genius.com/search?q=${keyword}&access_token=${localStorage.getItem("api_key")}`)
-      .subscribe((response) => {
-        // Handle the API response here
-        //console.log(response);
-        this.router.navigateByUrl(`/search/${keyword}`, { state: { searchData: response.response.hits } });
-      });
+
+    if (keyword !== '') {
+      // Make the API call using HttpClient
+      this.http.get<any>(`https://api.genius.com/search?q=${keyword}&access_token=${localStorage.getItem("api_key")}`)
+        .subscribe((response) => {
+          // Handle the API response here
+          //console.log(response);
+          this.router.navigateByUrl(`/search/${keyword}`, { state: { searchData: response.response.hits } });
+        });
 
       //console.log(this.data.response.hits)
       //console.log(environment.access_token)
-
+    }
+    else {
+      alert("Please insert an artist or a song name.")
+    }
   }
 }

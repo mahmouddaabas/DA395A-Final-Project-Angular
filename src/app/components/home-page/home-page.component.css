@@ -9,4 +9,8 @@
   #search-bar input {
     width: 50%;
   }
+
+  mat-icon:hover {
+    cursor: pointer;
+  }
   

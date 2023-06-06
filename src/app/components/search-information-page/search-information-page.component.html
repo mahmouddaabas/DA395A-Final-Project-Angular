@@ -5,13 +5,16 @@
   <div *ngIf="renderDescription(songData) === '?' else descriptionBlock" class="information-text">
     No description found for this song.
   </div>
-  
+
   <ng-template #descriptionBlock>
     <div class="information-text">{{ renderDescription(songData) }}</div>
   </ng-template>
 </div>
 
-<iframe class="song-player" width="400" height="200" [src]="getApplePlayerUrl()"
-  title="Apple Music player" frameborder="0"
-  allow="autoplay; encrypted-media"
-  allowfullscreen></iframe>
+<iframe class="song-player-apple" width="400" height="200" [src]="getApplePlayerUrl()" title="Apple Music player"
+  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+
+<iframe class="song-player-youtube" width="400" height="200" [src]="changeYoutubeUrlToEmbed()" title="Youtube player"
+  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
