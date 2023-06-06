@@ -42,7 +42,7 @@ export class SearchInformationPageComponent {
   //Changes the youtube URl from watch to embed.
   changeYoutubeUrlToEmbed() {
     let url = this.songData.media[0].url;
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url.replace('/watch?v=', '/embed/'));
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url.replace('/watch?v=', '/embed/').replace("http", "https"));
   }
 
 }
