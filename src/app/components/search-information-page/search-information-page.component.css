@@ -10,6 +10,10 @@
     color: white;
 }
 
-.song-player{
+.song-player-apple{
     margin-top: 25px;
+}
+
+.song-player-youtube{
+    margin-top: 25pxpx;
 }
